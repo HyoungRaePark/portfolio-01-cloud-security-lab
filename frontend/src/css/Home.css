@@ -1,0 +1,111 @@
+.home {
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 48px;
+
+    background: #111820;
+    border-bottom: 1px solid #26313d;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header p {
+    margin: 8px 0 0;
+    color: #8b949e;
+}
+
+.system-status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.system-status span {
+    color: #8b949e;
+    font-size: 13px;
+}
+
+.system-status strong {
+    color: #3fb950;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+
+.intro {
+    margin-bottom: 35px;
+}
+
+.intro p {
+    font-size: 13px;
+    color: #8b949e;
+}
+
+.intro h2 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.intro span {
+    color: #8b949e;
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/*반응형*/
+/* Tablet */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 24px;
+    }
+
+    main {
+        padding: 35px 20px;
+    }
+
+    .lab-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    .system-status {
+        width: 100%;
+    }
+
+    main {
+        padding: 30px 16px;
+    }
+
+    .intro h2 {
+        font-size: 26px;
+    }
+
+    .lab-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,44 @@
+.lab-card {
+    padding: 24px;
+    background: #111820;
+    border: 1px solid #26313d;
+    border-radius: 8px;
+}
+
+.lab-card:hover {
+    border-color: #58a6ff;
+}
+
+.lab-code {
+    color: #58a6ff;
+    font-size: 13px;
+}
+
+.lab-card h3 {
+    margin: 12px 0;
+}
+
+.lab-card p {
+    color: #8b949e;
+    min-height: 40px;
+}
+
+.lab-button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+
+    background: #21262d;
+    color: #e6edf3;
+
+    border: 1px solid #30363d;
+    border-radius: 6px;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+.lab-button:hover {
+    background: #30363d;
+}

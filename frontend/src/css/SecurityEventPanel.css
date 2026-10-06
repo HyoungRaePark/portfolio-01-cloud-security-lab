@@ -1,0 +1,111 @@
+.security-event-panel {
+    width: 100%;
+}
+
+.event-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.event-toolbar > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.event-toolbar strong {
+    color: #e6edf3;
+}
+
+.event-toolbar span {
+    color: #8b949e;
+    font-size: 14px;
+}
+
+.event-delete-button {
+    border: 1px solid #6e2b31;
+    border-radius: 8px;
+    padding: 8px 14px;
+
+    background: rgba(248, 81, 73, 0.08);
+    color: #ff7b72;
+
+    cursor: pointer;
+}
+
+.event-delete-button:hover:not(:disabled) {
+    background: rgba(248, 81, 73, 0.16);
+}
+
+.event-delete-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.event-message {
+    padding: 22px;
+    border: 1px dashed #30363d;
+    border-radius: 10px;
+    color: #8b949e;
+    text-align: center;
+}
+
+.event-error {
+    border-color: #6e3030;
+    color: #ff7b72;
+}
+
+.event-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+}
+
+.event-table th,
+.event-table td {
+    padding: 13px 14px;
+    border-bottom: 1px solid #21262d;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.event-table th {
+    color: #8b949e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.event-table td {
+    color: #c9d1d9;
+    font-size: 14px;
+}
+
+.severity-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 4px 9px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.severity-high {
+    background: rgba(248, 81, 73, 0.12);
+    color: #ff7b72;
+    border: 1px solid rgba(248, 81, 73, 0.35);
+}
+
+@media (max-width: 700px) {
+    .event-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

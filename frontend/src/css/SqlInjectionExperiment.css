@@ -1,0 +1,908 @@
+.sql-experiment {
+    margin-top: 24px;
+}
+
+/* =========================
+   실험 제목
+   ========================= */
+
+.experiment-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 18px;
+}
+
+.experiment-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+
+.experiment-title > p {
+    max-width: 560px;
+    margin: 0;
+    color: #8b949e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   전체 실험 대시보드
+   ========================= */
+
+.experiment-dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.dashboard-panel {
+    min-width: 0;
+    padding: 20px;
+    background: #111820;
+    border: 1px solid #26313d;
+    border-radius: 10px;
+}
+
+/*
+  01 정상 상태 / 02 공격 재현은
+  데스크톱에서 좌우 배치
+*/
+
+.baseline-panel {
+    grid-column: span 1;
+}
+
+.attack-panel {
+    grid-column: span 1;
+}
+
+/*
+  03 결과 관찰 / 04 원인 분석은
+  전체 너비 사용
+*/
+
+.observation-panel,
+.analysis-panel {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================
+   패널 제목
+   ========================= */
+
+.panel-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.panel-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 30px;
+
+    width: 30px;
+    height: 30px;
+
+    background: #0b0f14;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+
+    color: #58a6ff;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.panel-heading h3 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.panel-heading p {
+    margin: 5px 0 0;
+
+    color: #8b949e;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   로그인 입력
+   ========================= */
+
+.login-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    color: #8b949e;
+
+    font-size: 12px;
+}
+
+.login-form input {
+    width: 100%;
+    min-width: 0;
+
+    padding: 11px 12px;
+
+    background: #0b0f14;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+
+    color: #e6edf3;
+    outline: none;
+}
+
+.login-form input[readonly] {
+    color: #c9d1d9;
+    cursor: default;
+}
+
+
+/* =========================
+   01 정상 상태
+   ========================= */
+
+.normal-state-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* =========================
+   02 공격 입력
+   ========================= */
+
+.attack-input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 14px;
+    padding: 12px 14px;
+
+    background: rgba(248, 81, 73, 0.06);
+    border: 1px solid #6e2b31;
+    border-radius: 7px;
+}
+
+.attack-input-box > span:first-child {
+    color: #ff7b72;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.attack-input-box > span:last-child {
+    color: #8b949e;
+    font-size: 11px;
+}
+
+.attack-input-box code {
+    display: block;
+
+    padding: 10px 12px;
+
+    overflow-x: auto;
+
+    background: #080c10;
+    border-radius: 5px;
+
+    color: #ffb3ad;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   실행 버튼
+   ========================= */
+
+.compare-button {
+    width: 100%;
+
+    margin-top: 10px;
+    padding: 11px 14px;
+
+    background: #1f6feb;
+    border: 1px solid #388bfd;
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.compare-button:hover:not(:disabled) {
+    background: #388bfd;
+}
+
+.compare-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+
+/* =========================
+   SQL 처리 방식
+   ========================= */
+
+.query-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.sql-query-block {
+    min-width: 0;
+
+    padding: 14px;
+
+    background: #0b0f14;
+    border: 1px solid #30363d;
+    border-radius: 7px;
+}
+
+.sql-query-block.safe {
+    border-color: #2f6f4e;
+}
+
+.sql-query-block.vulnerable {
+    border-color: #8b343b;
+}
+
+.query-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.query-title strong {
+    font-size: 13px;
+}
+
+.status-dot {
+    flex: 0 0 8px;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.safe-dot {
+    background: #3fb950;
+}
+
+.danger-dot {
+    background: #f85149;
+}
+
+.sql-query-block > p {
+    min-height: 34px;
+
+    margin: 8px 0 12px;
+
+    color: #8b949e;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.sql-query-block code {
+    display: block;
+
+    min-height: 78px;
+    padding: 12px;
+
+    overflow-x: auto;
+
+    background: #080c10;
+    border-radius: 5px;
+
+    color: #e6edf3;
+
+    font-size: 11px;
+    line-height: 1.7;
+
+    white-space: nowrap;
+}
+
+.query-summary {
+    margin-top: 10px;
+    padding: 8px 10px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.safe-summary {
+    background: rgba(46, 160, 67, 0.1);
+    color: #56d364;
+}
+
+.danger-summary {
+    background: rgba(248, 81, 73, 0.1);
+    color: #ff7b72;
+}
+
+
+/* =========================
+   공격 비교 결과
+   ========================= */
+
+.comparison-results {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+
+    gap: 12px;
+
+    margin-top: 14px;
+}
+
+.comparison-card {
+    min-width: 0;
+
+    padding: 18px;
+
+    background: #0b0f14;
+    border-radius: 8px;
+}
+
+.safe-result {
+    border: 1px solid #2f6f4e;
+}
+
+.vulnerable-result {
+    border: 1px solid #8b343b;
+}
+
+.comparison-label {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: #8b949e;
+
+    font-size: 11px;
+}
+
+.comparison-card > strong {
+    display: block;
+    font-size: 20px;
+}
+
+.comparison-card > p {
+    margin: 8px 0 0;
+
+    color: #8b949e;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.login-success {
+    color: #56d364;
+}
+
+.login-failed {
+    color: #ff7b72;
+}
+
+.comparison-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #8b949e;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   실험 결과 알림
+   ========================= */
+
+.experiment-conclusion {
+    margin-top: 12px;
+    padding: 14px 16px;
+
+    border-radius: 7px;
+}
+
+.experiment-conclusion strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 13px;
+}
+
+.experiment-conclusion p {
+    margin: 0;
+
+    color: #c9d1d9;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.normal-conclusion {
+    background: rgba(46, 160, 67, 0.08);
+    border: 1px solid #2f6f4e;
+}
+
+.normal-conclusion strong {
+    color: #56d364;
+}
+
+.danger-conclusion {
+    background: rgba(248, 81, 73, 0.08);
+    border: 1px solid #8b343b;
+}
+
+.danger-conclusion strong {
+    color: #ff7b72;
+}
+
+.neutral-conclusion {
+    background: #0b0f14;
+    border: 1px solid #30363d;
+}
+
+
+/* =========================
+   04 원인 분석
+   ========================= */
+
+.interpretation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.interpretation-grid > div {
+    min-width: 0;
+
+    padding: 16px;
+
+    background: #0b0f14;
+    border: 1px solid #30363d;
+    border-radius: 7px;
+}
+
+.interpretation-grid > div:first-child {
+    border-color: #2f6f4e;
+}
+
+.interpretation-grid > div:last-child {
+    border-color: #8b343b;
+}
+
+.interpretation-grid strong {
+    font-size: 13px;
+}
+
+.interpretation-grid p {
+    margin: 8px 0 14px;
+
+    color: #8b949e;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.interpretation-grid span {
+    display: block;
+
+    padding: 9px 10px;
+
+    background: #161b22;
+    border-radius: 5px;
+
+    color: #c9d1d9;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   공통 빈 상태
+   ========================= */
+
+.empty-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100px;
+    padding: 20px;
+
+    background: #0b0f14;
+    border: 1px dashed #30363d;
+    border-radius: 7px;
+
+    color: #8b949e;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+.executed-sql-box {
+    margin-top: 14px;
+    padding: 14px;
+
+    background: rgba(248, 81, 73, 0.06);
+    border: 1px solid #6e2b31;
+    border-radius: 7px;
+}
+
+.executed-sql-box > span {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #ff7b72;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.executed-sql-box code {
+    display: block;
+    overflow-x: auto;
+
+    padding: 12px;
+
+    background: #080c10;
+    border-radius: 5px;
+
+    color: #ffb3ad;
+    font-size: 13px;
+    line-height: 1.7;
+
+    white-space: nowrap;
+}
+
+/* 5 방어적용 */
+.defense-panel {
+    grid-column: 1 / -1;
+}
+
+.defense-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+    gap: 14px;
+}
+
+.defense-step {
+    min-width: 0;
+    padding: 18px;
+    background: #0b0f14;
+    border-radius: 8px;
+}
+
+.defense-before {
+    border: 1px solid #8b343b;
+}
+
+.defense-after {
+    border: 1px solid #2f6f4e;
+}
+
+.defense-step > span {
+    display: block;
+    margin-bottom: 7px;
+    color: #8b949e;
+    font-size: 12px;
+}
+
+.defense-step > strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.defense-before > strong {
+    color: #ff7b72;
+}
+
+.defense-after > strong {
+    color: #56d364;
+}
+
+.defense-step code {
+    display: block;
+    padding: 12px;
+    overflow-x: auto;
+
+    background: #080c10;
+    border-radius: 5px;
+
+    color: #e6edf3;
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: nowrap;
+}
+
+.defense-step p {
+    margin: 12px 0 0;
+    color: #8b949e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.defense-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #58a6ff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.defense-summary {
+    margin-top: 14px;
+    padding: 14px 16px;
+
+    background: rgba(46, 160, 67, 0.06);
+    border: 1px solid #2f6f4e;
+    border-radius: 7px;
+}
+
+.defense-summary strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #56d364;
+    font-size: 13px;
+}
+
+.defense-summary p {
+    margin: 0;
+    color: #c9d1d9;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.revalidation-panel {
+    grid-column: 1 / -1;
+}
+
+.retest-payload {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 14px;
+    padding: 14px;
+
+    background: #0b0f14;
+    border: 1px solid #30363d;
+    border-radius: 7px;
+}
+
+.retest-payload > span {
+    color: #8b949e;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.retest-payload code {
+    min-width: 0;
+    padding: 10px 12px;
+    overflow-x: auto;
+
+    background: #080c10;
+    border-radius: 5px;
+
+    color: #ffb3ad;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.retest-button {
+    padding: 10px 14px;
+
+    background: #1f6feb;
+    border: 1px solid #388bfd;
+    border-radius: 6px;
+
+    color: #ffffff;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.retest-button:hover:not(:disabled) {
+    background: #388bfd;
+}
+
+.retest-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.retest-results {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: stretch;
+    gap: 14px;
+}
+
+.retest-card {
+    padding: 20px;
+
+    background: #0b0f14;
+    border-radius: 8px;
+}
+
+.retest-before {
+    border: 1px solid #8b343b;
+}
+
+.retest-after {
+    border: 1px solid #2f6f4e;
+}
+
+.retest-card > span {
+    display: block;
+    margin-bottom: 14px;
+
+    color: #8b949e;
+    font-size: 12px;
+}
+
+.retest-card > strong {
+    display: block;
+    font-size: 22px;
+}
+
+.retest-card > p {
+    margin: 8px 0 0;
+
+    color: #8b949e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.retest-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #58a6ff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.retest-conclusion {
+    margin-top: 14px;
+    padding: 14px 16px;
+
+    background: rgba(46, 160, 67, 0.08);
+    border: 1px solid #2f6f4e;
+    border-radius: 7px;
+}
+
+.retest-conclusion strong {
+    display: block;
+    margin-bottom: 6px;
+
+    color: #56d364;
+    font-size: 14px;
+}
+
+.retest-conclusion p {
+    margin: 0;
+
+    color: #c9d1d9;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================
+   태블릿
+   ========================= */
+
+@media (max-width: 1100px) {
+    .experiment-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .baseline-panel,
+    .attack-panel,
+    .observation-panel,
+    .analysis-panel {
+        grid-column: auto;
+    }
+}
+
+
+/* =========================
+   모바일
+   ========================= */
+
+@media (max-width: 650px) {
+    .sql-experiment {
+        margin-top: 18px;
+    }
+
+    .experiment-title {
+        display: block;
+    }
+
+    .experiment-title > p {
+        margin-top: 10px;
+    }
+
+    .dashboard-panel {
+        padding: 16px;
+    }
+
+    .login-form,
+    .query-comparison,
+    .interpretation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-results {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-arrow {
+        padding: 3px 0;
+    }
+
+    .sql-query-block > p {
+        min-height: auto;
+    }
+
+    .defense-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .defense-arrow {
+        transform: rotate(90deg);
+        padding: 2px 0;
+    }
+
+    .retest-payload,
+    .retest-results {
+        grid-template-columns: 1fr;
+    }
+
+    .retest-arrow {
+        transform: rotate(90deg);
+        padding: 2px 0;
+    }
+}

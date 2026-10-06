@@ -1,0 +1,156 @@
+.lab-detail {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 32px 36px 60px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* 상단 LAB 정보 */
+
+.lab-overview {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #26313d;
+}
+
+.lab-overview-main {
+    width: 100%;
+}
+
+.lab-code {
+    display: block;
+    margin-bottom: 8px;
+    color: #58a6ff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.lab-title-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.lab-title-row h1 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 46px);
+}
+
+.lab-layer {
+    padding: 6px 10px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 999px;
+    color: #8b949e;
+    font-size: 12px;
+}
+
+.lab-overview p {
+    max-width: 850px;
+    margin: 12px 0 0;
+    color: #8b949e;
+    line-height: 1.6;
+}
+
+/* 실험 진행 과정 */
+
+.flow-section {
+    margin-top: 24px;
+    padding: 20px;
+    background: #111820;
+    border: 1px solid #26313d;
+    border-radius: 10px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.section-label {
+    color: #58a6ff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.section-heading h2 {
+    margin: 5px 0 0;
+    font-size: 18px;
+}
+
+.experiment-flow {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.flow-step {
+    min-width: 0;
+    padding: 14px;
+    background: #0b0f14;
+    border: 1px solid #26313d;
+    border-radius: 7px;
+}
+
+.flow-step strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #58a6ff;
+    font-size: 12px;
+}
+
+.flow-step span {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.flow-step p {
+    margin: 6px 0 0;
+    color: #8b949e;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* 반응형 */
+
+@media (max-width: 1100px) {
+    .experiment-flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .lab-detail {
+        padding: 24px 16px 40px;
+    }
+
+    .experiment-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading {
+        display: block;
+    }
+}
+
+@media (max-width: 430px) {
+    .experiment-flow {
+        grid-template-columns: 1fr;
+    }
+}

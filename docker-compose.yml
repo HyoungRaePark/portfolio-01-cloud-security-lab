@@ -1,0 +1,45 @@
+services:
+
+  mysql:
+    image: mysql:8.4
+    container_name: cloud-security-lab-mysql
+
+    environment:
+      # [LAB ONLY]
+      # 로컬 격리 실습 환경에서만 사용하는 테스트용 DB 자격 증명이다.
+      # 실제 운영 환경에서는 비밀번호를 Compose 파일에 직접 작성하지 않고
+      # 환경 변수, Secret Manager 등의 비밀 관리 방식을 사용해야 한다.
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: security_lab
+      MYSQL_USER: labuser
+      MYSQL_PASSWORD: labpass
+
+    ports:
+      # [LAB ONLY]
+      # 로컬 PC에서 MySQL 실습 및 상태 확인을 쉽게 하기 위해
+      # 호스트의 3306 포트를 공개한다.
+      # 실제 클라우드 환경에서는 DB를 외부 인터넷에 직접 공개하지 않고
+      # Private Subnet 및 Security Group 등으로 접근을 제한해야 한다.
+      - "3307:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-uroot",
+          "-prootpass"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mysql-data:
